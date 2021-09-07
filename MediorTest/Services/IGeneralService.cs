@@ -7,9 +7,9 @@ namespace MediorTest.Services
 {
     public interface IGeneralService<T>
     {
-        T Insert();
-        T Update();
+        T Insert(T model);
+        T Update(T model);
         List<T> Read();
-        T Delete();
+        T Delete(string name);
     }
 }

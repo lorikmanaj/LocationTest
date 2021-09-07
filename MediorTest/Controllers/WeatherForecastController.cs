@@ -27,8 +27,8 @@ namespace MediorTest.Controllers
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
-            var test = new LocationSerializer();
-            test.SerializeLocations();
+            //var test = new LocationSerializer();
+            //test.SerializeLocations();
 
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
