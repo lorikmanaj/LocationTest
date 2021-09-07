@@ -9,7 +9,7 @@ namespace MediorTest.Services
     {
         T Insert();
         T Update();
-        T Read();
+        List<T> Read();
         T Delete();
     }
 }

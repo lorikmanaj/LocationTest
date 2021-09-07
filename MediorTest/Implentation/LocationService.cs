@@ -19,9 +19,9 @@ namespace MediorTest.Implentation
             throw new NotImplementedException();
         }
 
-        public LocationModel Read()
+        public List<LocationModel> Read()
         {
-            throw new NotImplementedException();
+            return new LocationSerializer().SerializeLocations();
         }
 
         public LocationModel Update()
