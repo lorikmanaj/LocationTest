@@ -30,7 +30,7 @@ namespace MediorTest.Controllers
         {
             return Ok(new ReturnObj() { Status = 200, Message = "LOCATION_ADD", Data = _locationService.Insert(model), Success = true });
         }
-        [HttpDelete]
+        [HttpDelete("{name}")]
         public IActionResult Remove(string name)
         {
             return Ok(new ReturnObj() { Status = 200, Message = "LOCATION_DELETED", Data = _locationService.Delete(name), Success = true });

@@ -25,11 +25,12 @@ namespace MediorTest.Implentation
                 {
                     string jsonObj = reader.ReadToEnd();
                     locations = JsonConvert.DeserializeObject<List<LocationModel>>(jsonObj);
-                    var locationToRemove = locations.Where(_ => _.Name == name).FirstOrDefault();
-                    locations.Remove(locationToRemove);
-                    System.IO.File.WriteAllText(path, JsonConvert.SerializeObject(locations));
-                    return locationToRemove;
+                    reader.Dispose();
                 }
+                var locationToRemove = locations.Where(_ => _.Name == name).FirstOrDefault();
+                locations.Remove(locationToRemove);
+                System.IO.File.WriteAllText(path, JsonConvert.SerializeObject(locations));
+                return locationToRemove;
             }
             catch (Exception e)
             {
@@ -46,11 +47,13 @@ namespace MediorTest.Implentation
                 using (StreamReader reader = new StreamReader(path))
                 {
                     string jsonObj = reader.ReadToEnd();
+
                     locations = JsonConvert.DeserializeObject<List<LocationModel>>(jsonObj);
-                    locations.Add(model);
-                    System.IO.File.WriteAllText(path, JsonConvert.SerializeObject(locations));
-                    return model;
+                    reader.Dispose();
                 }
+                locations.Add(model);
+                System.IO.File.WriteAllText(path, JsonConvert.SerializeObject(locations));
+                return model;
             }
             catch (Exception e)
             {
@@ -66,6 +69,7 @@ namespace MediorTest.Implentation
             {
                 string jsonObj = reader.ReadToEnd();
                 locations = JsonConvert.DeserializeObject<List<LocationModel>>(jsonObj);
+                reader.Dispose();
             }
 
             var res = locations.Where(_ => string.IsNullOrEmpty(_.Name) || string.IsNullOrEmpty(_.Address) ||
@@ -86,11 +90,13 @@ namespace MediorTest.Implentation
                 {
                     string jsonObj = reader.ReadToEnd();
                     locations = JsonConvert.DeserializeObject<List<LocationModel>>(jsonObj);
-                    var l = locations.Where(_ => _.Name == model.Name).FirstOrDefault();
-                    locations.Add(model);
-                    System.IO.File.WriteAllText(path, JsonConvert.SerializeObject(locations));
-                    return model;
+                    reader.Dispose();
                 }
+                var l = locations.Where(_ => _.Name == model.Name).FirstOrDefault();
+                locations.Remove(l);
+                locations.Add(model);
+                System.IO.File.WriteAllText(path, JsonConvert.SerializeObject(locations));
+                return model;
             }
             catch (Exception e)
             {
