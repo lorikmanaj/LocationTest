@@ -15,10 +15,12 @@ namespace MediorTest.Controllers
     public class LocationController : ControllerBase
     {
         private readonly ILocationService _locationService;
+
         public LocationController(ILocationService locationService)
         {
             _locationService = locationService;
         }
+
         [HttpGet]
         public IActionResult Get()
         {
@@ -30,6 +32,7 @@ namespace MediorTest.Controllers
         {
             return Ok(new ReturnObj() { Status = 200, Message = "LOCATION_ADD", Data = _locationService.Insert(model), Success = true });
         }
+
         [HttpDelete("{name}")]
         public IActionResult Remove(string name)
         {
