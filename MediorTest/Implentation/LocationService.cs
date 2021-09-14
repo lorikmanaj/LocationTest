@@ -14,7 +14,8 @@ namespace MediorTest.Implentation
         readonly string path = "";
         public LocationService()
         {
-            path = @"C:\Users\lorik\Desktop\Lori\Roamler\MediorTest\MediorTest\DataSet\Locations.json";
+            path = @"D:\Lori\RoamlerBack\MediorTest\DataSet\Locations.json";
+            //path = @"C:\Users\lorik\Desktop\Lori\Roamler\MediorTest\MediorTest\DataSet\Locations.json";
         }
         public LocationModel Delete(string name)
         {
